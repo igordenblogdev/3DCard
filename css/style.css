@@ -1,0 +1,139 @@
+/* Импорт шрифтов */
+@import 'https://fonts.googleapis.com/css?family=Josefin+Slab';
+
+/* Сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Переменные для цвета */
+:root {
+    /* Цвет основного текста */
+    --color-main-text: #fff;
+    
+    /* Цвет дополнительного текста */
+    --color-sub-text: #ddd;
+
+    /* Цвет рамки  */
+
+}
+
+/* Устанавливаем шрифт */
+body {
+    font-family: "Josefin Slab", serif;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Распологаем карточки в ряд */
+.container {
+    padding: 30px;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    row-gap: 40px;
+    gap: 40px;
+}
+
+/* Задаем размеры самой карточки */
+.card {
+    width: 300px;
+    height: 500px;
+    /* определен на сколько элемент удален от точки обзора */
+    perspective: 1000px;
+}
+
+/* Задаем абсолютное позиционирование и размеры */
+.frame, .content, .back-side {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+/* Оформляем переднию рамку */
+.frame {
+    border: 3px solid rgb(120, 231, 231);
+    transform: translateZ(50px) translateX(-20px);
+    pointer-events: none;
+    transition: .5s;
+}
+/* Оформляем блок с контентом */
+.content {
+    background: linear-gradient(290deg, rgba(7, 197, 178, 0.8) 50%, rgba(15, 140, 194, 0.8) 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Оформляем заднюю рамку */
+.back-side {
+    background-color: rgba(202, 120, 88, 0.5);
+    transform: translateZ(-50px) translateX(20px);
+    transition: .5s;
+}
+
+/* Позиционируем переднюю рамку при наведении на карточку  */
+.card:hover .frame {
+    transform: translateZ(0) translateX(0);
+}
+
+/* Позиционируем заднюю рамку при наведении на карточку  */
+.card:hover .back-side {
+    transform: translateZ(0) translateX(0);
+}
+
+/* Стилизация картинки */
+img {
+    width: 65%;
+    border-radius: 50%;
+    margin-top: 10px;
+    border: 5px solid var(--color-main-text);
+}
+
+/* Стилизация имени */
+.full-name {
+    font-size: 35px;
+    color: var(--color-main-text);
+}
+
+/* Стилизация должности */
+.profession {
+    font-size: 25px;
+    color: var(--color-sub-text);
+}
+
+/* Стилизация описания */
+.about-me {
+    font-size: 19px;
+    color: var(--color-main-text);
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 90%;
+    padding: 10px;
+    text-align: center;border-radius: 5px;
+}
+
+/* Стилизация кнопки */
+.card-btn {
+    border: none;
+    outline: none;
+    width: 150px;
+    height: 35px;
+    background: linear-gradient(#6896e0, #0d5170);
+    color: var(--color-sub-text);
+    font-family: "Josefin Slab", serif;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
